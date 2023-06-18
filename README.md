@@ -6,7 +6,7 @@ A graphical Linux installer for [Fightcade](https://www.fightcade.com/) and addi
 
 ## Features
 * Dependencies from native software repositories
-  * `apt` on Ubuntu distributions
+  * `apt` on Ubuntu & Debian distributions
   * `pacman`/`yay` on Arch distributions
 * Latest Fightcade Installer
 * [Joystick & Keyboard Navigation](https://github.com/blueminder/fightcade-joystick-kb-controls)
