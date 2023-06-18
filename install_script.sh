@@ -11,6 +11,8 @@
 # Tested on:
 # * EndeavourOS 03-2023 (Arch Linux)
 # * Ubuntu 22.04
+# * Linux Mint 21.1
+# * Debian 12 (bookworm)
 
 SDIR=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
 
@@ -40,7 +42,7 @@ touch $STEPFILE
 
 sudo echo "Authenticated."
 
-# ubuntu: install dependencies for yad support if not present
+# ubuntu/debian: install dependencies for yad support if not present
 if type apt &> /dev/null; then	
 	if [ $(sudo dpkg-query -W -f='${Status}' libgtksourceview-3.0-1 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
 		sudo apt-get -y install libgtksourceview-3.0-1;
@@ -226,16 +228,27 @@ if type pacman &> /dev/null; then
 	yay -S --noconfirm lib32-sdl2 lib32-vulkan-icd-loader libdxvk
 	rm eclairevoyant.gpg
 elif type apt &> /dev/null; then
+	. /etc/os-release
+
 	sudo dpkg --add-architecture i386
 	sudo mkdir -pm755 /etc/apt/keyrings
 	sudo wget -O "/etc/apt/keyrings/winehq-archive.key" "https://dl.winehq.org/wine-builds/winehq.key"
 
-	RELEASE=$(lsb_release -cs)
-	sudo wget -NP /etc/apt/sources.list.d/ "https://dl.winehq.org/wine-builds/ubuntu/dists/${RELEASE}/winehq-${RELEASE}.sources"
+	if [[ $UBUNTU_CODENAME ]]; then
+		RELEASE=$UBUNTU_CODENAME
+		sudo wget -NP /etc/apt/sources.list.d/ "https://dl.winehq.org/wine-builds/ubuntu/dists/${RELEASE}/winehq-${RELEASE}.sources"
 
-	sudo apt-get update
-	sudo apt-get -y install --install-recommends winehq-staging
-	sudo apt-get -y install libcurl3-gnutls libzip4 libminiupnpc17 liblua5.3-0 libao4 dxvk
+		sudo apt-get update
+		sudo apt-get -y install --install-recommends winehq-staging
+		sudo apt-get -y install libcurl3-gnutls libzip4 libminiupnpc17 liblua5.3-0 libao4 dxvk
+	elif [[ $VERSION_CODENAME ]]; then
+		RELEASE=$VERSION_CODENAME
+		sudo wget -NP /etc/apt/sources.list.d/ "https://dl.winehq.org/wine-builds/debian/dists/${RELEASE}/winehq-${RELEASE}.sources"
+
+		sudo apt-get update
+		sudo apt-get -y install --install-recommends winehq-staging
+		sudo apt-get -y install libcurl3-gnutls libzip4 libminiupnpc17 liblua5.3-0 libao4
+	fi
 fi
 
 CURRENTSTEP=$(($CURRENTSTEP+1))
