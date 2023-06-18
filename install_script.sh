@@ -14,6 +14,8 @@
 # * Linux Mint 21.1
 # * Debian 12 (bookworm)
 
+export GDK_BACKEND=x11
+
 SDIR=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
 
 TMPDIR=/tmp/fci-`date +%s`
