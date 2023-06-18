@@ -102,7 +102,7 @@ Flycast Dojo (latest prerelease)
 Downloads &amp; installs the latest Flycast Dojo prerelease. Includes script to switch between Flycast Dojo versions used by Fightcade.' > "${TMPDIR}/install_options.list"
 
 if type pacman &> /dev/null; then
-	echo -e 'true
+	echo -e 'false
 DXVK
 Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine' >> "${TMPDIR}/install_options.list"
 fi
