@@ -2,6 +2,8 @@
 
 A graphical Linux installer for [Fightcade](https://www.fightcade.com/) and additional QoL enhancements.
 
+![FC Plus Linux Installer - Main Screen](installer_main.png)
+
 ## Features
 * Dependencies from native software repositories
   * `apt` on Ubuntu distributions
