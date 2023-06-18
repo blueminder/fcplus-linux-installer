@@ -315,6 +315,10 @@ if [[ "$INSTALL_DOJO" == "true" ]]; then
 		yay -S --noconfirm zlib alsa-lib libpulse lua
 	fi
 
+	if type apt &> /dev/null; then
+		sudo apt-get -y install libfuse2
+	fi
+
 	wget -O "${TMPDIR}/linux-flycast-dojo-0.5.33.zip" "https://github.com/blueminder/flycast-dojo/releases/download/dojo-0.5.33/linux-flycast-dojo-0.5.33.zip"
 	unzip "${TMPDIR}/linux-flycast-dojo-0.5.33.zip" -d "$FC_DIR/emulator/flycast/"
 	chmod +x "$FC_DIR/emulator/flycast/flycast-dojo-x86_64.AppImage"
