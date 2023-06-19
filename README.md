@@ -2,7 +2,7 @@
 
 A graphical Linux installer for [Fightcade](https://www.fightcade.com/) and additional QoL enhancements.
 
-Targets distributions based on Arch, Debian, and Ubuntu. 
+Targets distributions based on Arch, Debian, and Ubuntu.
 
 <figure>
   <figcaption><i>FC Plus Linux Installer - Main Screen</i></figcaption>
