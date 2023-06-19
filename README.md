@@ -1,4 +1,4 @@
-# FC Plus Linux Installer
+# FC+ Linux Installer
 
 A graphical Linux installer for [Fightcade](https://www.fightcade.com/) and additional QoL enhancements.
 
