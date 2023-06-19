@@ -2,8 +2,17 @@
 
 A graphical Linux installer for [Fightcade](https://www.fightcade.com/) and additional QoL enhancements.
 
-![FC Plus Linux Installer - Main Screen](installer_main.png)
-*FC Plus Linux Installer - Main Screen*
+Targets distributions based on Arch, Debian, and Ubuntu. 
+
+<figure>
+  <figcaption><i>FC Plus Linux Installer - Main Screen</i></figcaption>
+  <img src="installer_main.png" alt="FC Plus Linux Installer - Main Screen">
+</figure>
+
+<figure>
+  <figcaption><i>Installed Desktop Environment Shortcuts</i></figcaption>
+  <img src="de_shortcuts.png" alt="Installed Desktop Environment Shortcuts">
+</figure>
 
 ## Features
 * Dependencies from native software repositories
@@ -18,9 +27,6 @@ A graphical Linux installer for [Fightcade](https://www.fightcade.com/) and addi
 * Preinstalled Lua scripts for select games
   * [Nailok's VF4 Training Mode](https://github.com/Nailok/VF4-Training)
   * [Grouflon's SFIII 3rd Strike Training Lua](https://github.com/Grouflon/3rd_training_lua)
-
-![Installed Desktop Environment Shortcuts](de_shortcuts.png)
-*Installed Desktop Environment Shortcuts*
 
 ## Tested On
 * EndeavourOS 03-2023 (Arch Linux)
