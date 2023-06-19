@@ -264,11 +264,6 @@ rm Fightcade-linux-latest.tar.gz
 cd $FC_DIR
 sed -i "40ised -i \'s/nAudSelect 0/nAudSelect 1/\' ./emulator/fbneo/config/fcadefbneo.ini" Fightcade2.sh
 
-#set fbneo video to softfx by default when dxvk is not installed
-if type apt &> /dev/null; then
-	sed -i "41ised -i \'s/nVidSelect 4/nVidSelect 2/\' ./emulator/fbneo/config/fcadefbneo.ini" Fightcade2.sh
-fi
-
 # create symbolic links for included flycast dojo binary
 sudo ln -s "/usr/lib/libzip.so" "/usr/lib/libzip.so.4"
 sudo ln -s "/usr/lib/liblua5.3.so" "/usr/lib/liblua5.3.so.0"
