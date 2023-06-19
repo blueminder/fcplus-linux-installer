@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Exec=sh -c "\\$HOME/.fightcade2/emulator/flycast/flycast-dojo-x86_64.AppImage"
+Name=Flycast Dojo
+Comment=Multiplatform Sega Dreamcast, Naomi and Atomiswave emulator. Optimized for training and netplay.
+Icon=flycast-dojo
+Categories=Game;Emulator
+StartupNotify=false

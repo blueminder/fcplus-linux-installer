@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Exec=sh -c "wine $HOME/.fightcade2/emulator/fbneo/fcadefbneo.exe"
+Name=Fightcade FBNeo
+Comment=Multi-system emulator bundled with Fightcade
+Icon=fcadefbneo
+Categories=Game;Emulator
+Path=
+StartupNotify=false

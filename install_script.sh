@@ -273,6 +273,9 @@ fi
 sudo ln -s "/usr/lib/libzip.so" "/usr/lib/libzip.so.4"
 sudo ln -s "/usr/lib/liblua5.3.so" "/usr/lib/liblua5.3.so.0"
 
+# create icons folder if it does not exist
+mkdir -p "$HOME/.local/share/icons"
+
 # gamepad/joystick controls
 if [[ "$INSTALL_JOY" == "true" ]]; then
 	cd "$FC_DIR/fc2-electron/resources/app/inject/"
@@ -308,6 +311,8 @@ if [[ "$INSTALL_DOJO" == "true" ]]; then
 	mkdir -p "$HOME/.local/share/applications"
 	cd "$HOME/.local/share/applications"
 	cp "${TMPDIR}/SwitchFlycast.desktop" "$HOME/.local/share/applications/SwitchFlycast.desktop"
+	cp "${TMPDIR}/FlycastDojo.desktop" "$HOME/.local/share/applications/FlycastDojo.desktop"
+	cp "${TMPDIR}/flycast-dojo.png" "$HOME/.local/share/icons/flycast-dojo.png"
 
 	if [ -d "$HOME/.local/share/flycast-dojo" ]; then
 		rm -rf "$HOME/.local/share/flycast-dojo"
@@ -362,6 +367,9 @@ sed -i "\$s/^/#/" "$HOME/.fightcade2/Fightcade2.sh"
 chmod +x "$HOME/.fightcade2/Fightcade2.sh"
 "$HOME/.fightcade2/Fightcade2.sh"
 sed -i "\$s/#//" "$HOME/.fightcade2/Fightcade2.sh"
+
+cp "${TMPDIR}/FightcadeFBNeo.desktop" "$HOME/.local/share/applications/FightcadeFBNeo.desktop"
+cp "${TMPDIR}/fcadefbneo.png" "$HOME/.local/share/icons/fcadefbneo.png"
 
 cd $TMPDIR
 
