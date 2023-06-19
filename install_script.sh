@@ -327,6 +327,7 @@ if [[ "$INSTALL_DOJO" == "true" ]]; then
 	cp "${TMPDIR}/switch_flycast_version.sh" "$FC_DIR/emulator/flycast/switch_flycast_version.sh"
 	chmod +x switch_flycast_version.sh
 	
+	mkdir -p "$HOME/.local/share/applications"
 	cd "$HOME/.local/share/applications"
 	cp "${TMPDIR}/SwitchFlycast.desktop" "$HOME/.local/share/applications/SwitchFlycast.desktop"
 
