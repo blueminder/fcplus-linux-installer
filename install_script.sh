@@ -101,12 +101,6 @@ true
 Flycast Dojo (latest prerelease)
 Downloads &amp; installs the latest Flycast Dojo prerelease. Includes script to switch between Flycast Dojo versions used by Fightcade.' > "${TMPDIR}/install_options.list"
 
-if type pacman &> /dev/null; then
-	echo -e 'false
-DXVK
-Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine' >> "${TMPDIR}/install_options.list"
-fi
-
 echo -e 'false
 Street Fighter III: 3rd Strike (Grouflon)
 FBNeo Lua Training Scripts
@@ -118,7 +112,6 @@ PLUG=`date +%s`
 
 INSTALL_JOY=false
 INSTALL_DOJO=false
-INSTALL_DXVK=false
 INSTALL_3S_LUA=false
 INSTALL_VF4FT_LUA=false
 
@@ -182,13 +175,6 @@ case "$TAB1" in
 	;;
 esac
 
-case "$TAB1" in
-	*"TRUE|DXVK"*)
-	INSTALL_DXVK=true
-	TOTALSTEPS=$(($TOTALSTEPS+1))
-	;;
-esac
-
 case "$TAB2" in
 	*"TRUE|Street Fighter III"*)
 	INSTALL_3S_LUA=true
@@ -236,15 +222,7 @@ if type pacman &> /dev/null; then
 		makepkg -si --noconfirm
 	fi
 	
-	yay -S --noconfirm rsync wine wine-mono lib32-mpg123 lib32-libxss lib32-libcurl-gnutls libcurl-gnutls libzip miniupnpc lua53 libao lib32-faudio
-	
-	# install libdxvk
-	if [[ "$INSTALL_DXVK" == "true" ]]; then
-		wget "https://github.com/eclairevoyant.gpg"
-		sudo pacman-key --add eclairevoyant.gpg
-		yay -S --noconfirm lib32-sdl2 lib32-vulkan-icd-loader libdxvk
-		rm eclairevoyant.gpg
-	fi
+	yay -S --noconfirm rsync wine wine-mono lib32-mpg123 lib32-libxss lib32-libcurl-gnutls libcurl-gnutls libzip miniupnpc lua53 libao lib32-faudio dxvk-bin
 elif type apt &> /dev/null; then
 	. /etc/os-release
 
@@ -287,7 +265,7 @@ cd $FC_DIR
 sed -i "40ised -i \'s/nAudSelect 0/nAudSelect 1/\' ./emulator/fbneo/config/fcadefbneo.ini" Fightcade2.sh
 
 #set fbneo video to softfx by default when dxvk is not installed
-if [[ "$INSTALL_DXVK" == "false" ]]; then
+if type apt &> /dev/null; then
 	sed -i "41ised -i \'s/nVidSelect 4/nVidSelect 2/\' ./emulator/fbneo/config/fcadefbneo.ini" Fightcade2.sh
 fi
 
