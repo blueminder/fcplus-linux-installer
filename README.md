@@ -32,6 +32,7 @@ Targets distributions based on Arch, Debian, and Ubuntu.
 * EndeavourOS 03-2023 (Arch Linux)
 * Ubuntu 22.04
 * Linux Mint 21.1
+* Pop! OS 22.04
 * Debian 12 (bookworm)
 
 ## Installation Instructions
