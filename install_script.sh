@@ -5,7 +5,7 @@
 
 # Includes:
 # * Joystick/Keyboard Navigation (https://github.com/blueminder/fightcade-joystick-kb-controls)
-# * Flycast Dojo git snapshot Arch Linux Package (https://github.com/blueminder/aur-flycast-dojo-git/releases)
+# * Flycast Dojo Prerelease AppImage (https://github.com/blueminder/flycast-dojo/releases)
 # * Script to switch between bundled & system Flycast Dojo versions
 
 # Tested on:
