@@ -22,8 +22,6 @@ Targets distributions based on Arch, Debian, and Ubuntu.
 * [Joystick & Keyboard Navigation](https://github.com/blueminder/fightcade-joystick-kb-controls)
 * Latest [Flycast Dojo](https://github.com/blueminder/flycast-dojo) Prerelease
   * *Switch Fightcade Flycast Version* Shortcut to easily swap versions between games.
-* [DXVK](https://github.com/doitsujin/dxvk) (Arch-based distributions)
-  * Allows you to use *DirectX 9 Alt* Video Blitter in FBNeo
 * Preinstalled Lua scripts for select games
   * [Nailok's VF4 Training Mode](https://github.com/Nailok/VF4-Training)
   * [Grouflon's SFIII 3rd Strike Training Lua](https://github.com/Grouflon/3rd_training_lua)
