@@ -27,7 +27,8 @@ Targets distributions based on Arch, Debian, and Ubuntu.
   * [Grouflon's SFIII 3rd Strike Training Lua](https://github.com/Grouflon/3rd_training_lua)
 
 ## Tested On
-* EndeavourOS 03-2023 (Arch Linux)
+* Arch Linux 2023.06.01
+* EndeavourOS 03-2023
 * Ubuntu 22.04
 * Linux Mint 21.1
 * Pop! OS 22.04

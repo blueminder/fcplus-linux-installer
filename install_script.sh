@@ -9,7 +9,8 @@
 # * Script to switch between bundled & system Flycast Dojo versions
 
 # Tested on:
-# * EndeavourOS 03-2023 (Arch Linux)
+# * Arch Linux 2023.06.01
+# * EndeavourOS 03-2023
 # * Ubuntu 22.04
 # * Linux Mint 21.1
 # * Debian 12 (bookworm)
@@ -44,8 +45,10 @@ touch $STEPFILE
 
 sudo echo "Authenticated."
 
-# ubuntu/debian: install dependencies for yad support if not present
-if type apt &> /dev/null; then	
+# install dependencies for yad support if not present
+if type pacman &> /dev/null; then
+	sudo pacman -S --needed --noconfirm gspell gtksourceview3 unzip git wget
+elif type apt &> /dev/null; then
 	if [ $(sudo dpkg-query -W -f='${Status}' libgtksourceview-3.0-1 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
 		sudo apt-get -y install libgtksourceview-3.0-1;
 	fi
@@ -66,7 +69,7 @@ function open_about() {
 	--image="${TMPDIR}/fcp.png"\
 	--comments="A graphical Linux installer for Fightcade and additional QoL enhancements."\
 	--authors="blueminder (Enrique Santos)"\
-	--pversion=20230618\
+	--pversion=20230626\
 	--license=GPL3
 }
 export -f open_about
@@ -215,6 +218,10 @@ echo 5 > $PCTFILE
 
 # check if arch-based distro
 if type pacman &> /dev/null; then
+	sudo sed -i '/^#\[multilib]/{N;s/\n#/\n/}' /etc/pacman.conf
+	sudo sed -i 's/#\[multilib]/\[multilib]/g' /etc/pacman.conf
+	sudo pacman -Syu --noconfirm
+
 	if ! yay_loc="$(type -p yay)" || [[ -z $yay_loc ]]; then
 		git clone https://aur.archlinux.org/yay.git
 		chown -R "$USER:" yay/
