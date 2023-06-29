@@ -47,6 +47,7 @@ sudo echo "Authenticated."
 
 # install dependencies for yad support if not present
 if type pacman &> /dev/null; then
+	sudo pacman -Syu --noconfirm
 	sudo pacman -S --needed --noconfirm gspell gtksourceview3 unzip git wget
 elif type apt &> /dev/null; then
 	if [ $(sudo dpkg-query -W -f='${Status}' libgtksourceview-3.0-1 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
@@ -223,9 +224,9 @@ if type pacman &> /dev/null; then
 	sudo pacman -Syu --noconfirm
 
 	if ! yay_loc="$(type -p yay)" || [[ -z $yay_loc ]]; then
-		git clone https://aur.archlinux.org/yay.git
-		chown -R "$USER:" yay/
-		cd yay
+		git clone https://aur.archlinux.org/yay-bin.git
+		chown -R "$USER:" yay-bin/
+		cd yay-bin
 		makepkg -si --noconfirm
 	fi
 	
