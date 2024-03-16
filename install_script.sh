@@ -11,8 +11,8 @@
 # Tested on:
 # * Arch Linux 2024.03.01
 # * EndeavourOS 01-2024
-# * Ubuntu 22.04
-# * Linux Mint 21.1
+# * Ubuntu 23.10
+# * Linux Mint 21.3
 # * Debian 12 (bookworm)
 
 export GDK_BACKEND=x11
@@ -244,7 +244,7 @@ elif type apt &> /dev/null; then
 
 		sudo apt-get update
 		sudo apt-get -y install --install-recommends winehq-staging
-		sudo apt-get -y install libcurl3-gnutls libzip4 libminiupnpc17 liblua5.3-0 libao4 dxvk libvulkan1:i386 libgl1:i386
+		sudo apt-get -y install libcurl3-gnutls libzip4 libminiupnpc17 liblua5.3-0 libao4 libvulkan1:i386 libgl1:i386
 	elif [[ $VERSION_CODENAME ]]; then
 		RELEASE=$VERSION_CODENAME
 		sudo wget -NP /etc/apt/sources.list.d/ "https://dl.winehq.org/wine-builds/debian/dists/${RELEASE}/winehq-${RELEASE}.sources"
@@ -271,10 +271,6 @@ rm Fightcade-linux-latest.tar.gz
 # set fbneo audio default to xaudio2
 cd $FC_DIR
 sed -i "40ised -i \'s/nAudSelect 0/nAudSelect 1/\' ./emulator/fbneo/config/fcadefbneo.ini" Fightcade2.sh
-
-# create symbolic links for included flycast dojo binary
-sudo ln -s "/usr/lib/libzip.so" "/usr/lib/libzip.so.4"
-sudo ln -s "/usr/lib/liblua5.3.so" "/usr/lib/liblua5.3.so.0"
 
 # create icons folder if it does not exist
 mkdir -p "$HOME/.local/share/icons"
