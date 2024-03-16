@@ -70,7 +70,7 @@ function open_about() {
 	--image="${TMPDIR}/fcp.png"\
 	--comments="A graphical Linux installer for Fightcade and additional QoL enhancements."\
 	--authors="blueminder (Enrique Santos)"\
-	--pversion=20240316\
+	--pversion=20240316-2\
 	--license=GPL3
 }
 export -f open_about
@@ -271,6 +271,12 @@ rm Fightcade-linux-latest.tar.gz
 # set fbneo audio default to xaudio2
 cd $FC_DIR
 sed -i "40ised -i \'s/nAudSelect 0/nAudSelect 1/\' ./emulator/fbneo/config/fcadefbneo.ini" Fightcade2.sh
+
+if type pacman &> /dev/null; then
+	# create symbolic links for included flycast dojo binary
+	sudo ln -s "/usr/lib/libzip.so" "/usr/lib/libzip.so.4"
+	sudo ln -s "/usr/lib/liblua5.3.so" "/usr/lib/liblua5.3.so.0"
+fi
 
 # create icons folder if it does not exist
 mkdir -p "$HOME/.local/share/icons"
