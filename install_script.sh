@@ -9,8 +9,8 @@
 # * Script to switch between bundled & system Flycast Dojo versions
 
 # Tested on:
-# * Arch Linux 2023.06.01
-# * EndeavourOS 03-2023
+# * Arch Linux 2024.03.01
+# * EndeavourOS 01-2024
 # * Ubuntu 22.04
 # * Linux Mint 21.1
 # * Debian 12 (bookworm)
@@ -70,7 +70,7 @@ function open_about() {
 	--image="${TMPDIR}/fcp.png"\
 	--comments="A graphical Linux installer for Fightcade and additional QoL enhancements."\
 	--authors="blueminder (Enrique Santos)"\
-	--pversion=20230626\
+	--pversion=20240316\
 	--license=GPL3
 }
 export -f open_about
@@ -303,8 +303,8 @@ if [[ "$INSTALL_DOJO" == "true" ]]; then
 		sudo apt-get -y install libfuse2
 	fi
 
-	wget -O "${TMPDIR}/linux-flycast-dojo-0.5.33.zip" "https://github.com/blueminder/flycast-dojo/releases/download/dojo-0.5.33/linux-flycast-dojo-0.5.33.zip"
-	unzip "${TMPDIR}/linux-flycast-dojo-0.5.33.zip" -d "$FC_DIR/emulator/flycast/"
+	wget -O "${TMPDIR}/linux-flycast-dojo-6.6.zip" "https://github.com/blueminder/flycast-dojo/releases/download/dojo-6.6/linux-flycast-dojo-6.6.zip"
+	unzip "${TMPDIR}/linux-flycast-dojo-6.6.zip" -d "$FC_DIR/emulator/flycast/"
 	chmod +x "$FC_DIR/emulator/flycast/flycast-dojo-x86_64.AppImage"
 
 	cd "$FC_DIR/emulator/flycast"

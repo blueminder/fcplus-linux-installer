@@ -41,6 +41,11 @@ Targets distributions based on Arch, Debian, and Ubuntu.
 
 Once everything is installed, you should see shortcuts to Fightcade in the menu of your desktop environment. Your Fightcade installation may be found in `~/.fightcade2`.
 
+## Command Line Options
+If you wish to automatically download and extract an external zip file to your Fightcade install, just make your first additional argument the URL to the zip file to retrieve, and the second argument the folder you wish to extract to, relative to where Fightcade will be installed (`~/.fightcade2`).
+
+`./fcplus_installer.sh <URL to external zip file> <extraction target relative to Fightcade root>`
+
 ## Development
 If you wish to modify the installer, download the code to this repository and make your edits to `install_script.sh`. You may add files to the `payload` folder if needed.
 
