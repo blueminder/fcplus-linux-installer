@@ -240,17 +240,13 @@ elif type apt &> /dev/null; then
 
 	if [[ $UBUNTU_CODENAME ]]; then
 		RELEASE=$UBUNTU_CODENAME
-		sudo wget -NP /etc/apt/sources.list.d/ "https://dl.winehq.org/wine-builds/ubuntu/dists/${RELEASE}/winehq-${RELEASE}.sources"
-
 		sudo apt-get update
-		sudo apt-get -y install --install-recommends winehq-staging wine
+		sudo apt-get -y install --install-recommends wine32
 		sudo apt-get -y install libcurl3-gnutls libzip4 libminiupnpc17 liblua5.3-0 libao4 libvulkan1:i386 libgl1:i386
 	elif [[ $VERSION_CODENAME ]]; then
 		RELEASE=$VERSION_CODENAME
-		sudo wget -NP /etc/apt/sources.list.d/ "https://dl.winehq.org/wine-builds/debian/dists/${RELEASE}/winehq-${RELEASE}.sources"
-
 		sudo apt-get update
-		sudo apt-get -y install --install-recommends winehq-staging wine
+		sudo apt-get -y install --install-recommends wine32
 		sudo apt-get -y install libcurl3-gnutls libzip4 libminiupnpc17 liblua5.3-0 libao4
 	fi
 fi
