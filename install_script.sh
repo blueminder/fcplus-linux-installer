@@ -305,8 +305,8 @@ if [[ "$INSTALL_DOJO" == "true" ]]; then
 		sudo apt-get -y install libfuse2
 	fi
 
-	wget -O "${TMPDIR}/linux-flycast-dojo-6.10.zip" "https://github.com/blueminder/flycast-dojo/releases/download/dojo-6.10/linux-flycast-dojo-6.10.zip"
-	unzip "${TMPDIR}/linux-flycast-dojo-6.10.zip" -d "$FC_DIR/emulator/flycast/"
+	wget -O "${TMPDIR}/linux-flycast-dojo-6.12.zip" "https://github.com/blueminder/flycast-dojo/releases/download/dojo-6.12/linux-flycast-dojo-6.12.zip"
+	unzip "${TMPDIR}/linux-flycast-dojo-6.12.zip" -d "$FC_DIR/emulator/flycast/"
 	chmod +x "$FC_DIR/emulator/flycast/flycast-dojo-x86_64.AppImage"
 
 	cd "$FC_DIR/emulator/flycast"
