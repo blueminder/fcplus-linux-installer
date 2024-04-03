@@ -70,7 +70,7 @@ function open_about() {
 	--image="${TMPDIR}/fcp.png"\
 	--comments="A graphical Linux installer for Fightcade and additional QoL enhancements."\
 	--authors="blueminder (Enrique Santos)"\
-	--pversion=20240326\
+	--pversion=20240404\
 	--license=GPL3
 }
 export -f open_about
