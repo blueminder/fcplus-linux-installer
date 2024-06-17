@@ -70,7 +70,7 @@ function open_about() {
 	--image="${TMPDIR}/fcp.png"\
 	--comments="A graphical Linux installer for Fightcade and additional QoL enhancements."\
 	--authors="blueminder (Enrique Santos)"\
-	--pversion=20240614\
+	--pversion=20240617\
 	--license=GPL3
 }
 export -f open_about
@@ -301,8 +301,8 @@ if [[ "$INSTALL_DOJO" == "true" ]]; then
 		sudo apt-get -y install libfuse2
 	fi
 
-	wget -O "${TMPDIR}/linux-flycast-dojo-6.28.zip" "https://github.com/blueminder/flycast-dojo/releases/download/dojo-6.28/linux-flycast-dojo-6.28.zip"
-	unzip "${TMPDIR}/linux-flycast-dojo-6.28.zip" -d "$FC_DIR/emulator/flycast/"
+	wget -O "${TMPDIR}/linux-flycast-dojo-6.30.zip" "https://github.com/blueminder/flycast-dojo/releases/download/dojo-6.30/linux-flycast-dojo-6.30.zip"
+	unzip "${TMPDIR}/linux-flycast-dojo-6.30.zip" -d "$FC_DIR/emulator/flycast/"
 	chmod +x "$FC_DIR/emulator/flycast/flycast-dojo-x86_64.AppImage"
 
 	cd "$FC_DIR/emulator/flycast"
