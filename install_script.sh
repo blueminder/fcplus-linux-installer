@@ -69,7 +69,7 @@ function open_about() {
 		--image="${TMPDIR}/fcp.png" \
 		--comments="A graphical Linux installer for Fightcade and additional QoL enhancements." \
 		--authors="blueminder (Enrique Santos)" \
-		--pversion=20240621 --license=GPL3
+		--pversion=20240621A --license=GPL3
 }
 export -f open_about
 
@@ -267,6 +267,11 @@ cd $TMPDIR
 
 	cd $TMPDIR
 
+	mkdir -p "$HOME/.local/share/applications"
+	cd "$HOME/.local/share/applications"
+	cp "${TMPDIR}/FlycastDojo.desktop" "$HOME/.local/share/applications/FlycastDojo.desktop"
+	cp "${TMPDIR}/flycast-dojo.png" "$HOME/.local/share/icons/flycast-dojo.png"
+
 	if [[ "$INSTALL_DOJO" == "true" ]]; then
 		CURRENTSTEP=$(($CURRENTSTEP + 1))
 		echo $(((100 * $CURRENTSTEP) / $TOTALSTEPS)) >$PCTFILE
@@ -288,11 +293,8 @@ cd $TMPDIR
 		cp "${TMPDIR}/switch_flycast_version.sh" "$FC_DIR/emulator/flycast/switch_flycast_version.sh"
 		chmod +x switch_flycast_version.sh
 
-		mkdir -p "$HOME/.local/share/applications"
 		cd "$HOME/.local/share/applications"
 		cp "${TMPDIR}/SwitchFlycast.desktop" "$HOME/.local/share/applications/SwitchFlycast.desktop"
-		cp "${TMPDIR}/FlycastDojo.desktop" "$HOME/.local/share/applications/FlycastDojo.desktop"
-		cp "${TMPDIR}/flycast-dojo.png" "$HOME/.local/share/icons/flycast-dojo.png"
 
 		if [ -d "$HOME/.local/share/flycast-dojo" ]; then
 			rm -rf "$HOME/.local/share/flycast-dojo"
@@ -305,6 +307,13 @@ cd $TMPDIR
 		ln -s "$HOME/.fightcade2/emulator/flycast" "$HOME/.local/share/flycast-dojo"
 		ln -s "$HOME/.fightcade2/emulator/flycast" "$HOME/.config/flycast-dojo"
 	fi
+
+	cd "$FC_DIR/emulator/flycast"
+	mv "flycast.elf" "flycast"
+	echo "#!/bin/bash" >flycast.elf
+	echo 'SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )' >>flycast.elf
+	echo 'FLYCAST_ROOT=${SCRIPT_DIR} ${SCRIPT_DIR}/flycast $@' >>flycast.elf
+	chmod +x "$FC_DIR/emulator/flycast/flycast.elf"
 
 	CURRENTSTEP=$(($CURRENTSTEP + 1))
 	echo $(((100 * $CURRENTSTEP) / $TOTALSTEPS)) >$PCTFILE
